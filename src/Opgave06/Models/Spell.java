@@ -17,4 +17,8 @@ public class Spell {
         return description;
     }
 
+    public String toString(){
+        return String.format("%s%nDescription: %s", name, description);
+    }
+
 }

@@ -35,5 +35,23 @@ public class SpellsStorage {
     public ArrayList<Spell> getSpells() {
         return spells;
     }
+
+    public Spell findSpell(String name){
+        Spell spell = null;
+        int left = 0;
+        int right = spells.size() - 1;
+        while (spell == null && left <= right){
+            int middle = (left + right) / 2;
+            Spell candidateElement = spells.get(middle);
+            if(candidateElement.getName().equals(name)){
+                spell = candidateElement;
+            } else if (candidateElement.getName().compareTo(name) > 0){
+                right = middle - 1;
+            } else {
+                left = middle + 1;
+            }
+        }
+        return spell;
+    }
 }
 

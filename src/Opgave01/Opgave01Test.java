@@ -44,15 +44,13 @@ public class Opgave01Test {
         int right = endIndex;
         while(index == -1 && left <= right){
             int middle = (left + right) / 2;
-            int k = candidates[middle];
-            if(k >= 10 && k <= 15){
-                index = k;
+            int candidateElement = candidates[middle];
+            if(candidateElement >= 10 && candidateElement <= 15){
+                index = candidateElement;
+            } else if(candidateElement > 15) {
+                right = middle - 1;
             } else {
-                if(k > 15) {
-                    right = middle - 1;
-                } else {
-                    left = middle + 1;
-                }
+                left = middle + 1;
             }
         }
         return index;
